@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin-top: 100px;
+            display: grid;
+            grid-template-rows: 100px 100px 100px 100px 100px 60px;
+            grid-template-columns: 100px 100px 100px 100px;
+            grid-gap: 5px;
+            justify-content: center;
+
+        }
+
+        .bg button {
+            font-size: larger;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 255, 255, 0.274);
+            transition: all 1s;
+        }
+
+        button:hover {
+            background-color: aqua;
+        }
+
+        .result {
+            grid-column: 1/4;
+        }
+
+        .result input {
+
+            height: 95%;
+            width: 97%;
+
+        }
+        .equal{
+            grid-column: 1/5;
+        }
+
+        #display {
+
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="bg result"><input id="display" disabled type="text"></div>
+        <div class="bg "><button onclick="clr()">c</button></div>
+
+        <div class="bg "><button onclick="data(1)">1</button></div>
+        <div class="bg "><button onclick="data(2)">2</button></div>
+        <div class="bg "><button onclick="data(3)">3</button></div>
+        <div class="bg "><button onclick="back()">&#xab;</button></div>
+        <div class="bg "><button onclick="data(4)">4</button></div>
+        <div class="bg "><button onclick="data(5)">5</button></div>
+        <div class="bg "><button onclick="data(6)">6</button></div>
+        <div class="bg "><button onclick="data('*')">&#xd7;</button></div>
+        <div class="bg "><button onclick="data(7)">7</button></div>
+        <div class="bg "><button onclick="data(8)">8</button></div>
+        <div class="bg "><button onclick="data(9)">9</button></div>
+        <div class="bg "><button onclick="data('-')">-</button></div>
+        <div class="bg "><button onclick="data(0)">0</button></div>
+        <div class="bg "><button onclick="data('.')">.</button></div>
+
+        <div class="bg "><button onclick="data('/')">/</button></div>
+  
+        <div class="bg "><button onclick="data('+')">+</button></div>
+
+        <div class="bg equal "><button onclick="result()">=</button></div>
+
+    </div>
+
+
+    <script>
+        function data(m) {
+            document.getElementById("display").value += m;
+
+        }
+
+        function clr() {
+            document.getElementById("display").value = "";
+
+        }
+
+        function result() {
+          let x= document.getElementById("display").value;
+             let y= eval(x);
+             document.getElementById("display").value = y;
+             
+        }
+
+        function back(){
+            let x= document.getElementById("display").value;
+            document.getElementById("display").value=x.slice(0,-1);
+                      
+        }
+
+        
+      
+    </script>
+</body>
+
+</html>
